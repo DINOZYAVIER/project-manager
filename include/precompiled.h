@@ -16,6 +16,7 @@
 #include <QStandardPaths>
 #include <QSettings>
 #include <QDialog>
+#include <QJsonObject>
 
 #endif // __cplusplus
 
