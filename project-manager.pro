@@ -17,12 +17,15 @@ REV = $$system(git rev-list --count HEAD)
 BUILD_VERSION = 0.1.0.$$REV
 VERSION = $$BUILD_VERSION
 
+PRECOMPILED_HEADER = include/precompiled.h
+
 SOURCES += \
     sources/main.cpp \
     sources/mainwindow.cpp
 
 HEADERS += \
-    include/mainwindow.h
+    include/mainwindow.h \
+    include/precompiled.h
 
 FORMS += \
     resources/forms/mainwindow.ui
