@@ -2,6 +2,8 @@
 #include "include/mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "include/project_handler.h"
+
 MainWindow::MainWindow( QWidget* parent )
     : QMainWindow( parent )
     , m_ui( new Ui::MainWindow )

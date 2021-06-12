@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+struct ProjectHandler;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,6 +18,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow* m_ui;
+    Ui::MainWindow*                          m_ui;
+    QVector<std::shared_ptr<ProjectHandler>> m_projects;
 };
 #endif // MAINWINDOW_H
