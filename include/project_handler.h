@@ -3,7 +3,9 @@
 
 struct ProjectFile
 {
-    ProjectFile() {}
+    ProjectFile( QString id, QString name )
+        : _id( id )
+        , _name( name ) {}
     virtual ~ProjectFile() {}
 
     QString _id;
@@ -12,13 +14,15 @@ struct ProjectFile
 
 struct ImageFile : public ProjectFile
 {
-    ImageFile() {}
+    ImageFile( QString id, QString name )
+        : ProjectFile( id, name ) {}
     ~ImageFile() override {}
 };
 
 struct AudioFile : public ProjectFile
 {
-    AudioFile() {}
+    AudioFile( QString id, QString name )
+        : ProjectFile( id, name ) {}
     ~AudioFile() override {}
 };
 
@@ -31,7 +35,7 @@ public:
 private:
     QMap<QString, std::shared_ptr<ProjectFile>> m_files;
 
-    ProjectFile jsonToProjectFile( QJsonObject json );
+    std::shared_ptr<ProjectFile> jsonToProjectFile( QJsonObject json );
     QJsonObject projectFileToJson( ProjectFile file );
 };
 
