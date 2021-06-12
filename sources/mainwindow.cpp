@@ -8,6 +8,7 @@ MainWindow::MainWindow( QWidget* parent )
 {
     m_ui->setupUi(this);
     setWindowTitle( tr( "Project Manager" ) );
+    m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
 }
 
 MainWindow::~MainWindow()
