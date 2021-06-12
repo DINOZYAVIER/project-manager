@@ -21,11 +21,13 @@ PRECOMPILED_HEADER = include/precompiled.h
 
 SOURCES += \
     sources/main.cpp \
-    sources/mainwindow.cpp
+    sources/mainwindow.cpp \
+    sources/project_handler.cpp
 
 HEADERS += \
     include/mainwindow.h \
-    include/precompiled.h
+    include/precompiled.h \
+    include/project_handler.h
 
 FORMS += \
     resources/forms/mainwindow.ui
