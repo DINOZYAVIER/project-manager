@@ -3,7 +3,16 @@
 
 ProjectHandler::ProjectHandler( QJsonObject json )
 {
-    Q_UNUSED( json );
+    for( auto file : json )
+    {
+        QJsonObject fileObject = file.toObject();
+        QString id = fileObject.value( "id" ).toString();
+
+        auto projectFile = jsonToProjectFile( fileObject );
+
+        if( projectFile.get() )
+            m_files.insert( id, projectFile );
+    }
 }
 
 ProjectHandler::~ProjectHandler()
@@ -16,6 +25,9 @@ std::shared_ptr<ProjectFile> ProjectHandler::jsonToProjectFile( QJsonObject json
     QString id = json.value( "id" ).toString();
     QString name = json.value( "name" ).toString();
     QString type = json.value( "type" ).toString();
+
+    if( id.isEmpty() )
+        return nullptr;
 
     if( "Image" == type )
         return std::shared_ptr<ProjectFile>( new ImageFile( name, id ) );
@@ -31,14 +43,9 @@ QJsonObject ProjectHandler::projectFileToJson( std::shared_ptr<ProjectFile> file
     QString id = file->_id;
     QString type = "";
 
-    QJsonObject json;
-    json.insert( "id", file->_id );
-    json.insert( "name", file->_name );
-
-
     if( auto _file = dynamic_cast<ImageFile*>( file.get() ) )
         type = "Image";
-    else if( auto _file = dynamic_cast<ImageFile*>( file.get() ) )
+    else if( auto _file = dynamic_cast<AudioFile*>( file.get() ) )
         type = "Audio";
 
     QJsonObject json;
