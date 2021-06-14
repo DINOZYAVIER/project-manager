@@ -20,5 +20,7 @@ public:
 private:
     Ui::MainWindow*                          m_ui;
     QVector<std::shared_ptr<ProjectHandler>> m_projects;
+
+    void loadDatabase( const QString& path );
 };
 #endif // MAINWINDOW_H

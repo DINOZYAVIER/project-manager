@@ -35,8 +35,8 @@ public:
 private:
     QMap<QString, std::shared_ptr<ProjectFile>> m_files;
 
-    std::shared_ptr<ProjectFile> jsonToProjectFile( QJsonObject json );
-    QJsonObject projectFileToJson( std::shared_ptr<ProjectFile> file );
+    static std::shared_ptr<ProjectFile> jsonToProjectFile( QJsonObject json );
+    static QJsonObject projectFileToJson( std::shared_ptr<ProjectFile> file );
 };
 
 #endif // PROJECT_HANDLER_H
