@@ -1,7 +1,7 @@
 #include "include/precompiled.h"
 #include "include/project_handler.h"
 
-ProjectHandler::ProjectHandler( QJsonObject json, QString id, QString name )
+ProjectHandler::ProjectHandler( QJsonArray json, QString id, QString name )
     : ProjectFile( id, name )
 {
     for( auto file : json )

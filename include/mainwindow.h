@@ -22,5 +22,6 @@ private:
     QMap<QString, std::shared_ptr<ProjectHandler>> m_projects;
 
     void loadDatabase( const QString& path );
+    void populateListWidget();
 };
 #endif // MAINWINDOW_H

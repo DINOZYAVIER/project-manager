@@ -29,7 +29,7 @@ struct AudioFile : public ProjectFile
 class ProjectHandler : ProjectFile
 {
 public:
-    ProjectHandler( QJsonObject json, QString id, QString name );
+    ProjectHandler( QJsonArray json, QString id, QString name );
     ~ProjectHandler();
 
 private:
