@@ -30,8 +30,6 @@ std::shared_ptr<ProjectFile> ProjectHandler::jsonToProjectFile( QJsonObject json
     if( id.isEmpty() )
         return nullptr;
 
-    qDebug() << "json" << id << name << type;
-
     if( "Image" == type )
         return std::shared_ptr<ProjectFile>( new ImageFile( name, id ) );
     else if( "Audio" == type )

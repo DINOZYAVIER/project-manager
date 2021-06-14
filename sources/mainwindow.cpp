@@ -8,10 +8,10 @@ MainWindow::MainWindow( QWidget* parent )
     : QMainWindow( parent )
     , m_ui( new Ui::MainWindow )
 {
-    m_ui->setupUi(this);
+    m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
-    m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
-    //loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
+    //m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
+    loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 }
 
 MainWindow::~MainWindow()
@@ -42,15 +42,14 @@ void MainWindow::loadDatabase( const QString& path )
 
             if( id.isEmpty() )
                 continue;
+
+            populateProjectsMenu( id, name );
             m_projects.insert( id, std::shared_ptr<ProjectHandler>( new ProjectHandler( files, id, name ) ) );
         }
     }
 }
 
-void MainWindow::populateListWidget()
+void MainWindow::populateProjectsMenu( QString id, QString name )
 {
-    if( m_projects.isEmpty() )
-        return;
-
-
+   m_ui->cbProjects->addItem( name, id );
 }
