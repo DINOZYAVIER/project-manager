@@ -23,5 +23,6 @@ private:
 
     void loadDatabase( const QString& path );
     void populateProjectsMenu( QString id, QString name );
+    void populateListWidget( int projectIndex = 0 );
 };
 #endif // MAINWINDOW_H

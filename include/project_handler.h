@@ -32,6 +32,7 @@ public:
     ProjectHandler( QJsonArray json, QString id, QString name );
     ~ProjectHandler();
 
+    QMap<QString, std::shared_ptr<ProjectFile>> files() { return m_files; }
 private:
     QMap<QString, std::shared_ptr<ProjectFile>> m_files;
     QString                                     m_id;

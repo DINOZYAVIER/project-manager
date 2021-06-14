@@ -19,6 +19,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 #endif // __cplusplus
 

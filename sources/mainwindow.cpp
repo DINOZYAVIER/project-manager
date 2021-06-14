@@ -10,8 +10,12 @@ MainWindow::MainWindow( QWidget* parent )
 {
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
-    //m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
     loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
+
+    if( m_projects.isEmpty() )
+        m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
+    else
+        populateListWidget( 0 );
 }
 
 MainWindow::~MainWindow()
@@ -52,4 +56,18 @@ void MainWindow::loadDatabase( const QString& path )
 void MainWindow::populateProjectsMenu( QString id, QString name )
 {
    m_ui->cbProjects->addItem( name, id );
+}
+
+void MainWindow::populateListWidget( int projectIndex )
+{
+    if( m_projects.isEmpty() )
+        return;
+
+    auto projectFiles = m_projects.value( m_ui->cbProjects->itemData( projectIndex, Qt::UserRole ).toString() );
+    for( auto file : projectFiles->files() )
+    {
+        QListWidgetItem* item = new QListWidgetItem( file->_name, m_ui->filesListWidget );
+        item->setData( Qt::UserRole, file->_id );
+        m_ui->filesListWidget->addItem( item );
+    }
 }
