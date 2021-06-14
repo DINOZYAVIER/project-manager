@@ -26,14 +26,16 @@ struct AudioFile : public ProjectFile
     ~AudioFile() override {}
 };
 
-class ProjectHandler
+class ProjectHandler : ProjectFile
 {
 public:
-    ProjectHandler( QJsonObject json );
+    ProjectHandler( QJsonObject json, QString id, QString name );
     ~ProjectHandler();
 
 private:
     QMap<QString, std::shared_ptr<ProjectFile>> m_files;
+    QString                                     m_id;
+    QString                                     m_name;
 
     static std::shared_ptr<ProjectFile> jsonToProjectFile( QJsonObject json );
     static QJsonObject projectFileToJson( std::shared_ptr<ProjectFile> file );

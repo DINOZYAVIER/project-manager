@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-struct ProjectHandler;
+#include <QMap>
+class ProjectHandler;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,8 +18,8 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow*                          m_ui;
-    QVector<std::shared_ptr<ProjectHandler>> m_projects;
+    Ui::MainWindow*                                m_ui;
+    QMap<QString, std::shared_ptr<ProjectHandler>> m_projects;
 
     void loadDatabase( const QString& path );
 };

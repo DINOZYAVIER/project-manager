@@ -1,17 +1,18 @@
 #include "include/precompiled.h"
 #include "include/project_handler.h"
 
-ProjectHandler::ProjectHandler( QJsonObject json )
+ProjectHandler::ProjectHandler( QJsonObject json, QString id, QString name )
+    : ProjectFile( id, name )
 {
     for( auto file : json )
     {
         QJsonObject fileObject = file.toObject();
-        QString id = fileObject.value( "id" ).toString();
+        QString fileID = fileObject.value( "id" ).toString();
 
         auto projectFile = jsonToProjectFile( fileObject );
 
         if( projectFile.get() )
-            m_files.insert( id, projectFile );
+            m_files.insert( fileID, projectFile );
     }
 }
 
@@ -28,6 +29,8 @@ std::shared_ptr<ProjectFile> ProjectHandler::jsonToProjectFile( QJsonObject json
 
     if( id.isEmpty() )
         return nullptr;
+
+    qDebug() << "json" << id << name << type;
 
     if( "Image" == type )
         return std::shared_ptr<ProjectFile>( new ImageFile( name, id ) );

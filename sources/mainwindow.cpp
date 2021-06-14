@@ -11,6 +11,7 @@ MainWindow::MainWindow( QWidget* parent )
     m_ui->setupUi(this);
     setWindowTitle( tr( "Project Manager" ) );
     m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
+    loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 }
 
 MainWindow::~MainWindow()
@@ -20,18 +21,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadDatabase( const QString& path )
 {
-    QFile file( path);
-    QJsonObject projects;
+    QFile file( path );
+    QJsonObject metaProjects;
 
     if( file.open( QIODevice::ReadWrite | QIODevice::Text ) )
-       projects = QJsonDocument::fromJson( file.readAll() ).object();
+       metaProjects = QJsonDocument::fromJson( file.readAll() ).object();
     else
        return;
 
-    for( auto project : projects )
+    for( auto key : metaProjects.keys() )
     {
-        auto projectObject = project.toObject();
+        auto projectObject = metaProjects.value( key ).toArray();
 
-        m_projects.append( std::shared_ptr<ProjectHandler>( new ProjectHandler( projectObject ) ) );
+        for( auto project : projectObject )
+        {
+            auto object = project.toObject();
+            QString id = object.value( "id" ).toString();
+            QString name = object.value( "name" ).toString();
+
+            if( id.isEmpty() )
+                continue;
+           m_projects.insert( id, std::shared_ptr<ProjectHandler>( new ProjectHandler( object, id, name ) ) );
+        }
     }
 }

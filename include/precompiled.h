@@ -18,6 +18,7 @@
 #include <QDialog>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QJsonArray>
 
 #endif // __cplusplus
 
