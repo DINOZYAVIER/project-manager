@@ -16,6 +16,16 @@ MainWindow::MainWindow( QWidget* parent )
         m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
     else
         populateListWidget( 0 );
+
+    bool result = false;
+
+    result = connect( m_ui->cbProjects, static_cast<void ( QComboBox::* )(int)>( &QComboBox::currentIndexChanged ), [=]( int currentProject )
+    {
+        m_ui->filesListWidget->clear();
+
+        populateListWidget( currentProject );
+    });
+    Q_ASSERT( result );
 }
 
 MainWindow::~MainWindow()
