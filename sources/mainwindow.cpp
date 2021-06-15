@@ -87,4 +87,7 @@ void MainWindow::populateListWidget( int projectIndex )
 
 void MainWindow::initStyles()
 {
+    QFile cbStyle( ":/ComboBoxStyle.css" );
+    cbStyle.open( QFile::ReadOnly );
+    m_ui->cbProjects->setStyleSheet( cbStyle.readAll() );
 }

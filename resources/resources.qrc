@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ComboBoxStyle.css</file>
+        <file>icons/arrow_ic-2x.png</file>
+        <file>icons/arrow_ic.png</file>
+        <file>icons/audio_ic-2x.png</file>
+        <file>icons/audio_ic.png</file>
+        <file>icons/image_ic-2x.png</file>
+        <file>icons/image_ic.png</file>
+    </qresource>
+</RCC>
