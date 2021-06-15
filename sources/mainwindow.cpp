@@ -137,4 +137,13 @@ void MainWindow::initConnection()
         QMessageBox::aboutQt( this, "About Qt" );
     });
     Q_ASSERT( result );
+
+    result = connect( m_ui->actionOpenDatabase, &QAction::triggered, [this]()
+    {
+        QString fileName = QFileDialog::getOpenFileName( this,
+                    tr( "Open database" ), QCoreApplication::applicationDirPath(), tr( "(*.json)" ) );
+        m_ui->cbProjects->clear();
+        loadDatabase( fileName );
+        populateListWidget( 0 );
+    });
 }
