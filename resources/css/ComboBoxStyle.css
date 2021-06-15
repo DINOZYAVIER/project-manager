@@ -19,11 +19,6 @@ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
     background: white;
 }
 
-QComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-}
-
 QComboBox::drop-down {
     subcontrol-origin: margin;
     subcontrol-position: right;
@@ -51,7 +46,7 @@ QComboBox QAbstractItemView {
     selection-color: #75AD75;
 }
 
-QComboBox::indicator{
+QComboBox::indicator {
     background-color:transparent;
     selection-background-color:transparent;
     color:transparent;
