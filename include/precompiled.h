@@ -21,6 +21,7 @@
 #include <QJsonArray>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QWidget>
 
 #endif // __cplusplus
 

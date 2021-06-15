@@ -18,7 +18,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QComboBox" name="cbProjects"/>
+       <widget class="ProjectComboBox" name="cbProjects"/>
       </item>
       <item>
        <spacer name="horizontalSpacer">
@@ -85,6 +85,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ProjectComboBox</class>
+   <extends>QComboBox</extends>
+   <header>include/project_combo_box.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
