@@ -62,26 +62,3 @@ QComboBox::indicator{
 QComboBox::item:selected {
     border: none;
 }
-
-/*
-QComboBox:item::hover {
-        border-top: 4;
-        border-left: 4;
-        border-bottom: 4;
-        border-right: 4;
-
-        background-color: #C87020;
-
-        color: #C87020;
-}
-
-QComboBox:item:selected {
-        border-top: 4;
-        border-left: 4;
-        border-bottom: 4;
-        border-right: 4;
-
-        background-color: #C87020;
-
-        color: #C87020;
-}*/

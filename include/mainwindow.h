@@ -25,5 +25,6 @@ private:
     void populateProjectsMenu( QString id, QString name );
     void populateListWidget( int projectIndex = 0 );
     void initStyles();
+    void setGridPolicy();
 };
 #endif // MAINWINDOW_H

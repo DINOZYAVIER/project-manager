@@ -7,5 +7,6 @@
         <file>icons/audio_ic.png</file>
         <file>icons/image_ic-2x.png</file>
         <file>icons/image_ic.png</file>
+        <file>ListWidgetStyle.css</file>
     </qresource>
 </RCC>

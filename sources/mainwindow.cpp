@@ -81,6 +81,13 @@ void MainWindow::populateListWidget( int projectIndex )
     {
         QListWidgetItem* item = new QListWidgetItem( file->_name, m_ui->filesListWidget );
         item->setData( Qt::UserRole, file->_id );
+
+        QIcon icon;
+        if( auto _file = dynamic_cast<ImageFile*>( file.get() ) )
+            icon = QIcon( ":/icons/audio_ic.png" );
+        else if( auto _file = dynamic_cast<AudioFile*>( file.get() ) )
+            icon = QIcon( ":/icons/image_ic-2x.png" );
+        item->setIcon( icon );
         m_ui->filesListWidget->addItem( item );
     }
 }
@@ -90,4 +97,31 @@ void MainWindow::initStyles()
     QFile cbStyle( ":/ComboBoxStyle.css" );
     cbStyle.open( QFile::ReadOnly );
     m_ui->cbProjects->setStyleSheet( cbStyle.readAll() );
+
+    setGridPolicy();
+    QFile lwStyle( ":/ListWidgetStyle.css" );
+    lwStyle.open( QFile::ReadOnly );
+    m_ui->filesListWidget->setStyleSheet( lwStyle.readAll() );
 }
+
+void MainWindow::setGridPolicy()
+{
+    //m_ui->filesListWidget->setViewMode( QListView::IconMode );
+    //m_ui->filesListWidget->setFlow( QListView::TopToBottom );
+
+    //m_ui->filesListWidget->setFixedHeight( 20 );
+    //m_ui->filesListWidget->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
+}
+/*
+   list->setFlow( QListView::LeftToRight );
+   list->setResizeMode( QListView::Adjust );
+   QSize gridSize( scaledValue( 140 ), scaledValue( 70 ) );
+   int spacingSize = scaledValue( 10 );
+   list->setGridSize( gridSize );
+   gridSize.setWidth( gridSize.width() - spacingSize );
+   gridSize.setHeight( gridSize.height() - spacingSize );
+   list->setIconSize( gridSize );
+
+   list->setFixedHeight( calculateListWidgetHeight( list ) );
+   list->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
+*/
