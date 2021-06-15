@@ -10,6 +10,8 @@ MainWindow::MainWindow( QWidget* parent )
 {
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
+
+    initStyles();
     loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 
     if( m_projects.isEmpty() )
@@ -26,6 +28,7 @@ MainWindow::MainWindow( QWidget* parent )
         populateListWidget( currentProject );
     });
     Q_ASSERT( result );
+
 }
 
 MainWindow::~MainWindow()
@@ -80,4 +83,8 @@ void MainWindow::populateListWidget( int projectIndex )
         item->setData( Qt::UserRole, file->_id );
         m_ui->filesListWidget->addItem( item );
     }
+}
+
+void MainWindow::initStyles()
+{
 }
