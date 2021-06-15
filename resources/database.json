@@ -1,0 +1,72 @@
+{
+  "projects": [
+    {
+      "id": "b7758e9d-750a-41a3-b72e-57e8d1e0137d",
+      "name": "Project 1",
+      "files": [
+        {
+          "id": "25de6c16-c28c-4170-9870-5ad9eb4b749d",
+          "name": "Image 1.2",
+          "type": "Image"
+        },
+        {
+          "id": "0bc21ab8-285b-44eb-b4d4-144275d991ee",
+          "name": "Image 1.1",
+          "type": "Image"
+        },
+        {
+          "id": "00231d89-04d0-4c61-a47c-63c531225785",
+          "name": "Audio 1.1",
+          "type": "Audio"
+        }
+      ]
+    },
+    {
+      "id": "4e8a454d-0876-448e-8fb6-184699badcba",
+      "name": "Project 3",
+      "files": [
+        {
+          "id": "358d2a95-aed9-487f-b7ae-42cf55497f0c",
+          "name": "Image 3.1",
+          "type": "Image"
+        },
+        {
+          "id": "4c443e2b-1707-417b-9d78-5328df3b9076",
+          "name": "Audio 3.1",
+          "type": "Audio"
+        }
+      ]
+    },
+    {
+      "id": "813ae1d8-8a01-4fd1-85cd-a9d7bdd83c9c",
+      "name": "Project 2",
+      "files": [
+        {
+          "id": "d397b305-901b-4e34-b9d3-5c8a70e543dc",
+          "name": "Image 2.1",
+          "type": "Image"
+        },
+        {
+          "id": "16970002-98ac-48bb-873e-5ab4bedfcf0f",
+          "name": "Image 2.2",
+          "type": "Image"
+        },
+        {
+          "id": "8292159f-027e-4195-b92e-37673358c8e9",
+          "name": "Audio 2.1",
+          "type": "Audio"
+        },
+        {
+          "id": "a5f55503-b548-48dc-844b-90b9f1fad6b2",
+          "name": "Audio 2.2",
+          "type": "Audio"
+        },
+        {
+          "id": "496e51e7-084d-4f65-bbb9-2c2229899537",
+          "name": "Image 2.3",
+          "type": "Image"
+        }
+      ]
+    }
+  ]
+}

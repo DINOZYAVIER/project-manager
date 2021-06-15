@@ -8,5 +8,6 @@
         <file>icons/image_ic-2x.png</file>
         <file>icons/image_ic.png</file>
         <file>ListWidgetStyle.css</file>
+        <file>database.json</file>
     </qresource>
 </RCC>
