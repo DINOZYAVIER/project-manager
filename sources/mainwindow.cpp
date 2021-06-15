@@ -28,6 +28,20 @@ MainWindow::MainWindow( QWidget* parent )
     });
     Q_ASSERT( result );
 
+    result = connect( m_ui->actionAboutApplication, &QAction::triggered, [this]()
+    {
+        QMessageBox::about( this, "About the program",
+                                  "Project Management Application \nTest assignment by Arthur Konovalov.");
+    });
+    Q_ASSERT( result );
+
+
+    result = connect( m_ui->actionAboutQt, &QAction::triggered, [this]()
+    {
+        QMessageBox::aboutQt( this, "About Qt" );
+    });
+    Q_ASSERT( result );
+
     initStyles();
 }
 
@@ -94,7 +108,7 @@ void MainWindow::populateListWidget( int projectIndex )
 
 void MainWindow::initStyles()
 {
-    this->setStyleSheet( "background: white;" );
+    this->setStyleSheet( "background: white; color: black;" );
 
     m_ui->lbFiles->setStyleSheet( "font: 16px; color: black;" );
 
