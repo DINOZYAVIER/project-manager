@@ -11,7 +11,7 @@ MainWindow::MainWindow( QWidget* parent )
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
 
-    //loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
+    loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 
     if( m_projects.isEmpty() )
         m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
@@ -145,5 +145,18 @@ void MainWindow::initConnection()
         m_ui->cbProjects->clear();
         loadDatabase( fileName );
         populateListWidget( 0 );
+    });
+
+    result = connect( m_ui->actionCloseDatabase, &QAction::triggered, [this]()
+    {
+        int count = m_projects.size();
+        for( int i = 0; i < count; ++i )
+        {
+            QString key = m_ui->cbProjects->itemData( i, Qt::UserRole ).toString();
+            m_projects.remove( key );
+        }
+        m_ui->filesListWidget->clear();
+        m_ui->cbProjects->clear();
+        m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
     });
 }
