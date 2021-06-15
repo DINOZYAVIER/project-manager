@@ -11,37 +11,14 @@ MainWindow::MainWindow( QWidget* parent )
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
 
-    loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
+    //loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 
     if( m_projects.isEmpty() )
         m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
     else
         populateListWidget( 0 );
 
-    bool result = false;
-
-    result = connect( m_ui->cbProjects, static_cast<void ( QComboBox::* )(int)>( &QComboBox::currentIndexChanged ), [=]( int currentProject )
-    {
-        m_ui->filesListWidget->clear();
-
-        populateListWidget( currentProject );
-    });
-    Q_ASSERT( result );
-
-    result = connect( m_ui->actionAboutApplication, &QAction::triggered, [this]()
-    {
-        QMessageBox::about( this, "About the program",
-                                  "Project Management Application \nTest assignment by Arthur Konovalov.");
-    });
-    Q_ASSERT( result );
-
-
-    result = connect( m_ui->actionAboutQt, &QAction::triggered, [this]()
-    {
-        QMessageBox::aboutQt( this, "About Qt" );
-    });
-    Q_ASSERT( result );
-
+    initConnection();
     initStyles();
 }
 
@@ -133,4 +110,31 @@ void MainWindow::setGridPolicy()
     //m_ui->filesListWidget->setFixedHeight( m_ui->filesListWidget->count() * 20 );
     //m_ui->filesListWidget->setGridSize( QSize( m_ui->filesListWidget->width(), 20 ) );
     m_ui->filesListWidget->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
+}
+
+void MainWindow::initConnection()
+{
+    bool result = false;
+
+    result = connect( m_ui->cbProjects, static_cast<void ( QComboBox::* )(int)>( &QComboBox::currentIndexChanged ), [=]( int currentProject )
+    {
+        m_ui->filesListWidget->clear();
+
+        populateListWidget( currentProject );
+    });
+    Q_ASSERT( result );
+
+    result = connect( m_ui->actionAboutApplication, &QAction::triggered, [this]()
+    {
+        QMessageBox::about( this, "About the program",
+                                  "Project Management Application \nTest assignment by Arthur Konovalov.");
+    });
+    Q_ASSERT( result );
+
+
+    result = connect( m_ui->actionAboutQt, &QAction::triggered, [this]()
+    {
+        QMessageBox::aboutQt( this, "About Qt" );
+    });
+    Q_ASSERT( result );
 }

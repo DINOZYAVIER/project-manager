@@ -26,5 +26,6 @@ private:
     void populateListWidget( int projectIndex = 0 );
     void initStyles();
     void setGridPolicy();
+    void initConnection();
 };
 #endif // MAINWINDOW_H
