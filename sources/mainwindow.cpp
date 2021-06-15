@@ -73,9 +73,9 @@ void MainWindow::populateListWidget( int projectIndex )
 
         QIcon icon;
         if( auto _file = dynamic_cast<ImageFile*>( file.get() ) )
-            icon = QIcon( ":/icons/audio_ic.png" );
+            icon = QIcon( ":/icon_audio" );
         else if( auto _file = dynamic_cast<AudioFile*>( file.get() ) )
-            icon = QIcon( ":/icons/image_ic-2x.png" );
+            icon = QIcon( ":/icon_image" );
         item->setIcon( icon );
         m_ui->filesListWidget->addItem( item );
     }
@@ -134,6 +134,8 @@ void MainWindow::initConnection()
     {
         QString fileName = QFileDialog::getOpenFileName( this,
                     tr( "Open database" ), QCoreApplication::applicationDirPath(), tr( "(*.json)" ) );
+        if( fileName.isEmpty() )
+            return;
         m_ui->cbProjects->clear();
         loadDatabase( fileName );
         populateListWidget( 0 );
