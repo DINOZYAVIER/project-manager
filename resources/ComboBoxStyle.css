@@ -3,7 +3,7 @@ QComboBox {
     border-radius: 5px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
-    combobox-popup: 0
+    font: 12px arial;
 }
 
 QComboBox:editable {

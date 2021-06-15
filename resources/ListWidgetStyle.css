@@ -1,5 +1,6 @@
 QListView {
     show-decoration-selected: 1; /* make the selection span the entire width of the view */
+    font: 16px arial;
 }
 
 QListView::item:alternate {

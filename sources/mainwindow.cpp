@@ -11,7 +11,6 @@ MainWindow::MainWindow( QWidget* parent )
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
 
-    initStyles();
     loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
 
     if( m_projects.isEmpty() )
@@ -29,6 +28,7 @@ MainWindow::MainWindow( QWidget* parent )
     });
     Q_ASSERT( result );
 
+    initStyles();
 }
 
 MainWindow::~MainWindow()
@@ -90,10 +90,16 @@ void MainWindow::populateListWidget( int projectIndex )
         item->setIcon( icon );
         m_ui->filesListWidget->addItem( item );
     }
+    m_ui->filesListWidget->resize( m_ui->filesListWidget->width(),
+                                   m_ui->filesListWidget->count() * 30 );
 }
 
 void MainWindow::initStyles()
 {
+    this->setStyleSheet( "background: white;" );
+
+    m_ui->lbFiles->setStyleSheet( "font: 16px;" );
+
     QFile cbStyle( ":/ComboBoxStyle.css" );
     cbStyle.open( QFile::ReadOnly );
     m_ui->cbProjects->setStyleSheet( cbStyle.readAll() );
@@ -106,22 +112,12 @@ void MainWindow::initStyles()
 
 void MainWindow::setGridPolicy()
 {
+    m_ui->filesListWidget->setIconSize( QSize( 50, 50 ) );
+    m_ui->filesListWidget->setSpacing( 5 );
     //m_ui->filesListWidget->setViewMode( QListView::IconMode );
     //m_ui->filesListWidget->setFlow( QListView::TopToBottom );
 
-    //m_ui->filesListWidget->setFixedHeight( 20 );
+    //m_ui->filesListWidget->setFixedHeight( m_ui->filesListWidget->count() * 20 );
+    //m_ui->filesListWidget->setGridSize( QSize( m_ui->filesListWidget->width(), 20 ) );
     //m_ui->filesListWidget->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
 }
-/*
-   list->setFlow( QListView::LeftToRight );
-   list->setResizeMode( QListView::Adjust );
-   QSize gridSize( scaledValue( 140 ), scaledValue( 70 ) );
-   int spacingSize = scaledValue( 10 );
-   list->setGridSize( gridSize );
-   gridSize.setWidth( gridSize.width() - spacingSize );
-   gridSize.setHeight( gridSize.height() - spacingSize );
-   list->setIconSize( gridSize );
-
-   list->setFixedHeight( calculateListWidgetHeight( list ) );
-   list->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
-*/
