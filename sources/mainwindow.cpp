@@ -11,8 +11,6 @@ MainWindow::MainWindow( QWidget* parent )
     m_ui->setupUi( this );
     setWindowTitle( tr( "Project Manager" ) );
 
-    loadDatabase( "/Users/dinozyavier/Desktop/database.json" );
-
     if( m_projects.isEmpty() )
         m_ui->cbProjects->addItem( tr( "[Empty]" ), QString( "empty" ) );
     else
@@ -89,12 +87,12 @@ void MainWindow::initStyles()
 
     m_ui->lbFiles->setStyleSheet( "font: 16px; color: black;" );
 
-    QFile cbStyle( ":/ComboBoxStyle.css" );
+    QFile cbStyle( ":/css/ComboBoxStyle.css" );
     cbStyle.open( QFile::ReadOnly );
     m_ui->cbProjects->setStyleSheet( cbStyle.readAll() );
 
     setGridPolicy();
-    QFile lwStyle( ":/ListWidgetStyle.css" );
+    QFile lwStyle( ":/css/ListWidgetStyle.css" );
     lwStyle.open( QFile::ReadOnly );
     m_ui->filesListWidget->setStyleSheet( lwStyle.readAll() );
 }
@@ -103,12 +101,6 @@ void MainWindow::setGridPolicy()
 {
     m_ui->filesListWidget->setIconSize( QSize( 50, 50 ) );
     m_ui->filesListWidget->setSpacing( 5 );
-
-    //m_ui->filesListWidget->setViewMode( QListView::IconMode );
-    //m_ui->filesListWidget->setFlow( QListView::TopToBottom );
-
-    //m_ui->filesListWidget->setFixedHeight( m_ui->filesListWidget->count() * 20 );
-    //m_ui->filesListWidget->setGridSize( QSize( m_ui->filesListWidget->width(), 20 ) );
     m_ui->filesListWidget->setVerticalScrollBarPolicy( Qt::ScrollBarPolicy::ScrollBarAlwaysOff );
 }
 
