@@ -15,5 +15,6 @@ void ProjectComboBox::showPopup()
 {
     QComboBox::showPopup();
     QWidget* popup = this->findChild<QFrame*>();
+    popup->resize( width() * 1.5, popup->height() );
     popup->move( mapToGlobal( QPoint( width() + 10, 0 ) ) );
 }
