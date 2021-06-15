@@ -1,24 +1,30 @@
 QListView {
     show-decoration-selected: 1; /* make the selection span the entire width of the view */
     font: 16px arial;
+    color: black;
 }
 
 QListView::item:alternate {
     background: #F2F8F2;
+    color: black;
 }
 
 QListView::item:selected {
     border: 0px solid white;
+    color: black;
 }
 
 QListView::item:selected:!active {
     background: #F2F8F2;
+    color: black;
 }
 
 QListView::item:selected:active {
     background: #F2F8F2;
+    color: black;
 }
 
 QListView::item:hover {
     background: #F2F8F2;
+    color: black;
 }

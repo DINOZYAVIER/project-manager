@@ -4,6 +4,7 @@ QComboBox {
     padding: 1px 18px 1px 3px;
     min-width: 6em;
     font: 12px arial;
+    color: black;
 }
 
 QComboBox:editable {
@@ -16,7 +17,6 @@ QComboBox:!editable, QComboBox::drop-down:editable {
 /* QComboBox gets the "on" state when the popup is open */
 QComboBox:!editable:on, QComboBox::drop-down:editable:on {
     background: white;
-    padding: 10px 10px 10px 10px;
 }
 
 QComboBox:on { /* shift the text when the popup opens */
