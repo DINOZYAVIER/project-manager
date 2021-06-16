@@ -105,7 +105,6 @@
      <string>File</string>
     </property>
     <addaction name="actionOpenDatabase"/>
-    <addaction name="actionSaveDatabase"/>
     <addaction name="actionCloseDatabase"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
