@@ -22,6 +22,7 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QWidget>
+#include <QPalette>
 
 #endif // __cplusplus
 

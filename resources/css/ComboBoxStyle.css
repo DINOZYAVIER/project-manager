@@ -3,6 +3,7 @@ QComboBox {
     border-radius: 5px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+    combobox-popup: 0;
     font: 12px arial;
     color: black;
 }
@@ -46,13 +47,16 @@ QComboBox QAbstractItemView {
     selection-color: #75AD75;
 }
 
-QComboBox::indicator {
+QComboBox::indicator{
     background-color:transparent;
     selection-background-color:transparent;
     color:transparent;
     selection-color:transparent;
 }
 
-QComboBox::item:selected {
-    border: none;
+QComboBox::item:selected
+{
+    border: 1px;
+    background-color: #F2F8F2;
+    color: green;
 }
