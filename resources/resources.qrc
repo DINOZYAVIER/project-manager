@@ -9,5 +9,6 @@
         <file>database.json</file>
         <file>css/ComboBoxStyle.css</file>
         <file>css/ListWidgetStyle.css</file>
+        <file alias="app_icon">icons/app_icon.icns</file>
     </qresource>
 </RCC>

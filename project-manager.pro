@@ -60,7 +60,7 @@ win32 {
 macx {
     DEPLOY_TARGET = $$shell_quote($$DESTDIR/$${TARGET}.app)
     DEPLOY_COMMAND = macdeployqt
-    #ICON = ./resources/appicon/icon.icns
+    ICON = ./resources/icons/app_icon.icns
 }
 
 win32|macx {
